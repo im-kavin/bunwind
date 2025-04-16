@@ -1,0 +1,5 @@
+{
+	"name": "bunwind",
+	"private": true,
+	"workspaces": ["packages/*"]
+}

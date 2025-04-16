@@ -1,0 +1,30 @@
+{
+	"name": "@bunwind/ui",
+	"version": "0.1.0",
+	"type": "module",
+	"module": "index.ts",
+	"private": true,
+	"dependencies": {
+		"@radix-ui/react-label": "^2.1.3",
+		"@radix-ui/react-slot": "^1.2.0",
+		"class-variance-authority": "^0.7.1",
+		"clsx": "^2.1.1",
+		"lucide-react": "^0.488.0",
+		"postcss": "^8.5.3",
+		"tailwind-merge": "^3.2.0",
+		"tw-animate-css": "^1.2.5"
+	},
+	"peerDependencies": {
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"tailwindcss": "^4.1.4",
+		"typescript": "^5.8.3"
+	},
+	"devDependencies": {
+		"@tailwindcss/postcss": "^4.1.4",
+		"@types/bun": "latest",
+		"@types/node": "^20.17.30",
+		"@types/react": "^19.1.2",
+		"@types/react-dom": "^19.1.2"
+	}
+}
