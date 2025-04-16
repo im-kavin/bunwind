@@ -53,8 +53,8 @@ In the future, you will:
 
 ```ts
 // index.ts
-export * from "./components/button"
-export * from "./components/form"
+export * from "@bundwind/ui/components/button"
+export * from "@bundwind/ui/components/form"
 // etc.
 ```
 
@@ -503,9 +503,9 @@ These commands will:
 Open `packages/ui/index.ts` and re-export all the components you want the world to consume:
 
 ```ts
-export * from "./components/button"
-export * from "./components/input"
-export * from "./components/label"
+export * from "@bunwind/ui/components/button"
+export * from "@bunwind/ui/components/input"
+export * from "@bunwind/ui/components/label"
 ```
 
 This exposes the components as the public interface of the `@bunwind/ui` package:

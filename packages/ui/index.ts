@@ -1,5 +1,5 @@
 /**
- * IMPORTANT: Use relative imports (./) for exports in shared packages
+ * IMPORTANT: Use full package names for exports in shared packages
  * 
  * While @/ path aliases work within this package (defined in tsconfig.json),
  * they cause resolution errors when imported from other packages.
@@ -11,11 +11,11 @@
  * 3. Using @/ in exports would cause "Module not found" errors
  * 
  * Best practices:
- * - Use relative imports (./) for any paths that get exported
+ * - Use full package names (@bunwind/ui/...) for any paths that get exported
  * - @/ aliases can still be used for internal imports not directly exported
  */
 
-export * from "./components/button";
-export * from "./components/input";
-export * from "./components/label";
-export * from "./lib/utils";
+export * from "@bunwind/ui/components/button";
+export * from "@bunwind/ui/components/input";
+export * from "@bunwind/ui/components/label";
+export * from "@bunwind/ui/lib/utils";
