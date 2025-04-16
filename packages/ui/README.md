@@ -428,34 +428,36 @@ This file is used by the shadcn/ui generator to know how to scaffold new compone
 
 ```json
 {
-  "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "new-york",
-  "rsc": false,
-  "tsx": true,
-  "tailwind": {
-    "config": "",
-    "css": "@/globals.css",
-    "baseColor": "neutral",
-    "cssVariables": true,
-    "prefix": ""
-  },
-  "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils",
-    "ui": "@/components",
-    "lib": "@/lib",
-    "hooks": "@/hooks"
-  },
-  "iconLibrary": "lucide"
+	"$schema": "https://ui.shadcn.com/schema.json",
+	"style": "new-york",
+	"rsc": false,
+	"tsx": true,
+	"tailwind": {
+		"config": "",
+		"css": "@bunwind/ui/globals.css",
+		"baseColor": "neutral",
+		"cssVariables": true,
+		"prefix": ""
+	},
+	"aliases": {
+		"components": "@bunwind/ui/components",
+		"utils": "@bunwind/ui/lib/utils",
+		"ui": "@bunwind/ui/components",
+		"lib": "@bunwind/ui/lib",
+		"hooks": "@bunwind/ui/hooks"
+	},
+	"iconLibrary": "lucide"
 }
+
 ```
 
 ### ✅ Notes on Customization:
 
-- We changed `"css"` from the default (`src/styles/globals.css`) to `"@/globals.css"` to match our file location.
-- We changed `"ui"` from `"@/components/ui"` to `"@/components"` because:
+- We changed `"css"` from the default (`src/styles/globals.css`) to `"@bunwind/ui/globals.css"` to match our file location.
+- We changed `"ui"` from `"@/components/ui"` to `"@bunwind/ui/components"` because:
   - We're already in the UI package
   - The `/components/ui` nesting is redundant here
+  - We used full package references (e.g., `@bunwind/ui/components` instead of `@/components`) to prevent any reference errors when shadcn/ui creates our components and they are used in other packages in our monorepo
 
 ---
 
@@ -485,9 +487,7 @@ To finalize the `@bunwind/ui` package, we’ll add a few foundational components
 Inside `packages/ui`, run the following commands:
 
 ```bash
-bunx --bun shadcn@latest add button
-bunx --bun shadcn@latest add input
-bunx --bun shadcn@latest add label
+bunx --bun shadcn@latest add button && bunx --bun shadcn@latest add input && bunx --bun shadcn@latest add label
 ```
 
 These commands will:
@@ -503,9 +503,9 @@ These commands will:
 Open `packages/ui/index.ts` and re-export all the components you want the world to consume:
 
 ```ts
-export * from "@/components/button"
-export * from "@/components/input"
-export * from "@/components/label"
+export * from "./components/button"
+export * from "./components/input"
+export * from "./components/label"
 ```
 
 This exposes the components as the public interface of the `@bunwind/ui` package:
